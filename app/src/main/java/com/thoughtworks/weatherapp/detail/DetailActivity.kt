@@ -28,6 +28,11 @@ class DetailActivity : AppCompatActivity(), DetailContract.View {
     loader.visibility = View.GONE
   }
 
+  override fun showError(message: String) {
+    error.visibility = View.VISIBLE
+    error.text = message
+  }
+
   override fun updateWeather(weatherInfo: WeatherInfo) {
     city.text = weatherInfo.name
     temperature.text = weatherInfo.main.temp.toString()

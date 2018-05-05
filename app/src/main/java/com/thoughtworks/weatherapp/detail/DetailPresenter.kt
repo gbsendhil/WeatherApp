@@ -19,9 +19,14 @@ class DetailPresenter(
         .observeOn(androidScheduler)
         .subscribe(
             { weather ->
-              view.updateWeather(weather)
               view.hideLoader()
-            })
+              view.updateWeather(weather)
+            },
+            { _ ->
+              view.hideLoader()
+              view.showError("Network Unavailable")
+            }
+        )
 
   }
 

@@ -7,6 +7,7 @@ interface DetailContract {
     fun updateWeather(weatherInfo: WeatherInfo)
     fun showLoader()
     fun hideLoader()
+    fun showError(message: String)
   }
 
   interface Presenter {
