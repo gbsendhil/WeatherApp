@@ -4,7 +4,7 @@ data class WeatherInfo(
         val weather: List<Weather>,
         val main: Main,
         val wind: Wind,
-        val dt: Int,
+        val dt: Long,
         val id: Int,
         val name: String)
 
