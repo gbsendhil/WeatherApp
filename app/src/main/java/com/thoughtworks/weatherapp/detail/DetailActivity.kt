@@ -2,6 +2,7 @@ package com.thoughtworks.weatherapp.detail
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.view.View
 import com.thoughtworks.weatherapp.R
 import com.thoughtworks.weatherapp.model.WeatherInfo
 import com.thoughtworks.weatherapp.network.WeatherService
@@ -19,15 +20,20 @@ class DetailActivity : AppCompatActivity(), DetailContract.View {
         presenter.fetchWeather()
     }
 
-    override fun showLoader() {
+  override fun showLoader() {
+    loader.visibility = View.VISIBLE
+  }
 
-    }
+  override fun hideLoader() {
+    loader.visibility = View.GONE
+  }
 
-    override fun hideLoader() {
-
-    }
-
-    override fun updateWeather(weather: WeatherInfo) {
-        city.text = weather.name
-    }
+  override fun updateWeather(weatherInfo: WeatherInfo) {
+    city.text = weatherInfo.name
+    temperature.text = weatherInfo.main.temp.toString()
+    description.text = weatherInfo.weather[0].description
+    pressure.text = weatherInfo.main.pressure.toString()
+    humidity.text = weatherInfo.main.humidity.toString()
+    weather_date.text = weatherInfo.dt.toString()
+  }
 }

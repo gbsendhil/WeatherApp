@@ -6,6 +6,17 @@
     android:layout_height="match_parent"
     tools:context=".detail.DetailActivity">
 
+    <ProgressBar
+      android:id="@+id/loader"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:gravity="center"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintLeft_toLeftOf="parent"
+      app:layout_constraintRight_toRightOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      android:visibility="gone"/>
+
     <TextView
         android:id="@+id/city"
         android:layout_width="wrap_content"
@@ -15,7 +26,6 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:text="loading"
         tools:text="Bangalore" />
 
     <ImageView
@@ -47,16 +57,16 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="72dp"
         android:textSize="63sp"
-        app:layout_constraintBottom_toTopOf="@+id/weather_description_tv"
+        app:layout_constraintBottom_toTopOf="@+id/description"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/weather_icon"
-        app:layout_constraintTop_toBottomOf="@+id/weather_date_tv"
+        app:layout_constraintTop_toBottomOf="@+id/weather_date"
         app:layout_constraintVertical_bias="0.782"
-        tools:text="31 d" />
+        tools:text="31ºC" />
 
     <TextView
-        android:id="@+id/weather_description_tv"
+        android:id="@+id/description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -65,22 +75,6 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/temperature"
         tools:text="Clear sky" />
-
-    <TextView
-        android:id="@+id/wind"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:enabled="false"
-        tools:text="wind"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/weather_description_tv" />
-
 
     <TextView
         android:id="@+id/pressure"
@@ -96,7 +90,7 @@
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/wind" />
+        app:layout_constraintTop_toBottomOf="@+id/description" />
 
     <TextView
         android:id="@+id/humidity"
@@ -117,7 +111,7 @@
         app:layout_constraintTop_toBottomOf="@+id/pressure" />
 
     <TextView
-        android:id="@+id/weather_date_tv"
+        android:id="@+id/weather_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"

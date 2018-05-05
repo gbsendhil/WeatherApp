@@ -4,7 +4,7 @@ import com.thoughtworks.weatherapp.model.WeatherInfo
 
 interface DetailContract {
   interface View {
-    fun updateWeather(weather: WeatherInfo)
+    fun updateWeather(weatherInfo: WeatherInfo)
     fun showLoader()
     fun hideLoader()
   }
