@@ -35,10 +35,10 @@ class DetailActivity : AppCompatActivity(), DetailContract.View {
 
   override fun updateWeather(weatherInfo: WeatherInfo) {
     city.text = weatherInfo.name
-    temperature.text = weatherInfo.main.temp.toString()
+    temperature.text = getString(R.string.temperature, weatherInfo.main.temp)
     description.text = weatherInfo.weather[0].description
-    pressure.text = weatherInfo.main.pressure.toString()
-    humidity.text = weatherInfo.main.humidity.toString()
+    pressure.text = getString(R.string.pressure, weatherInfo.main.pressure)
+    humidity.text = getString(R.string.humidity, weatherInfo.main.humidity)
     weather_date.text = weatherInfo.dt.toString()
   }
 }

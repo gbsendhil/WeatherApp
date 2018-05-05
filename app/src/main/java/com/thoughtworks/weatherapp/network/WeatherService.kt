@@ -9,11 +9,13 @@ import retrofit2.http.Query
 import rx.Observable
 
 private const val APP_ID = "e3d72b0711b57e4c8da67629201b3d60"
+private const val METRIC_UNIT = "metric"
 
 interface WeatherService {
   @GET("2.5/weather")
   fun getByCityName(@Query("q") query: String,
-                    @Query("appid") appID: String = APP_ID)
+                    @Query("appid") appID: String = APP_ID,
+                    @Query("units") unit: String = METRIC_UNIT)
       : Observable<WeatherInfo>
 
 

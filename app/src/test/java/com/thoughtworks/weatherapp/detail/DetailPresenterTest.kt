@@ -29,11 +29,11 @@ class DetailPresenterTest {
 
   @Test
   fun shouldFetchWeather() {
-    retrofitService = mock { on { getByCityName(any(), any()) } doReturn Observable.just(weatherInfo) }
+    retrofitService = mock { on { getByCityName(any(), any(), any()) } doReturn Observable.just(weatherInfo) }
     presenter = DetailPresenter(view, retrofitService, testScheduler, testScheduler)
     presenter.fetchWeather()
 
-    verify(retrofitService).getByCityName(eq("Bangalore"), any())
+    verify(retrofitService).getByCityName(eq("Bangalore"), any(), any())
     verify(view).showLoader()
     testScheduler.triggerActions()
     verify(view).updateWeather(weatherInfo)
@@ -42,11 +42,11 @@ class DetailPresenterTest {
 
   @Test
   fun shouldCatchNetworkError() {
-    retrofitService = mock { on { getByCityName(any(), any()) } doReturn Observable.error(NetworkErrorException()) }
+    retrofitService = mock { on { getByCityName(any(), any(), any()) } doReturn Observable.error(NetworkErrorException()) }
     presenter = DetailPresenter(view, retrofitService, testScheduler, testScheduler)
     presenter.fetchWeather()
 
-    verify(retrofitService).getByCityName(eq("Bangalore"), any())
+    verify(retrofitService).getByCityName(eq("Bangalore"), any(), any())
     verify(view).showLoader()
     testScheduler.triggerActions()
     verify(view).hideLoader()

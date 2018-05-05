@@ -18,9 +18,9 @@ class DetailPresenter(
         .subscribeOn(processScheduler)
         .observeOn(androidScheduler)
         .subscribe(
-            { weather ->
+            { weatherInfo ->
               view.hideLoader()
-              view.updateWeather(weather)
+              view.updateWeather(weatherInfo)
             },
             { _ ->
               view.hideLoader()
