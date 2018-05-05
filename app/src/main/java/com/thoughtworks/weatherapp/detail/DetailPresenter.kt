@@ -6,23 +6,23 @@ import rx.android.schedulers.AndroidSchedulers
 import rx.schedulers.Schedulers
 
 class DetailPresenter(
-        val view: DetailView,
-        private val retrofitService: WeatherService,
-        private val processScheduler: Scheduler = Schedulers.io(),
-        private val androidScheduler: Scheduler = AndroidSchedulers.mainThread()) {
+    private val view: DetailContract.View,
+    private val retrofitService: WeatherService,
+    private val processScheduler: Scheduler = Schedulers.io(),
+    private val androidScheduler: Scheduler = AndroidSchedulers.mainThread()) : DetailContract.Presenter {
 
-    fun fetchWeather() {
-        view.showLoader()
+  override fun fetchWeather() {
+    view.showLoader()
 
-        retrofitService.getByCityName("Bangalore")
-                .subscribeOn(processScheduler)
-                .observeOn(androidScheduler)
-                .subscribe(
-                        { weather ->
-                            view.updateWeather(weather)
-                            view.hideLoader()
-                        })
+    retrofitService.getByCityName("Bangalore")
+        .subscribeOn(processScheduler)
+        .observeOn(androidScheduler)
+        .subscribe(
+            { weather ->
+              view.updateWeather(weather)
+              view.hideLoader()
+            })
 
-    }
+  }
 
 }

@@ -14,9 +14,9 @@ import rx.schedulers.TestScheduler
 class DetailPresenterTest{
 
     lateinit var presenter: DetailPresenter
-    lateinit var view: DetailView
-    lateinit var retrofitService: WeatherService
-    lateinit var testScheduler: TestScheduler
+    lateinit var view: DetailContract.View
+    private lateinit var retrofitService: WeatherService
+    private lateinit var testScheduler: TestScheduler
     private val weatherInfo = WeatherInfo(ArrayList(), Main(2.0,1,1,2.0,2.0),Wind(2.0,1), 1, 1, "Bng")
 
 

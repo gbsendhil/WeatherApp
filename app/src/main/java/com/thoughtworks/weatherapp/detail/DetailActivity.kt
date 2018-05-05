@@ -1,13 +1,13 @@
 package com.thoughtworks.weatherapp.detail
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import com.thoughtworks.weatherapp.R
 import com.thoughtworks.weatherapp.model.WeatherInfo
 import com.thoughtworks.weatherapp.network.WeatherService
 import kotlinx.android.synthetic.main.activity_main.*
 
-class DetailActivity : AppCompatActivity(), DetailView {
+class DetailActivity : AppCompatActivity(), DetailContract.View {
 
     private lateinit var presenter: DetailPresenter
     private val weatherService: WeatherService = WeatherService.Client.instance()
